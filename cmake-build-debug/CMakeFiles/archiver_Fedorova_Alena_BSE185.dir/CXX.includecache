@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/elyon/CLionProjects/archiver_Fedorova_Alena_BSE185/ShannonFano.cpp
+ShannonFano.h
+C:/Users/elyon/CLionProjects/archiver_Fedorova_Alena_BSE185/ShannonFano.h
+map
+-
+fstream
+-
+algorithm
+-
+
+C:/Users/elyon/CLionProjects/archiver_Fedorova_Alena_BSE185/ShannonFano.h
+vector
+-
+iostream
+-
+bitset
+-
+

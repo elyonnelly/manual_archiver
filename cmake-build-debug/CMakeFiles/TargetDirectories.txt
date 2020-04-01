@@ -1,0 +1,3 @@
+C:/Users/elyon/CLionProjects/archiver_Fedorova_Alena_BSE185/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir
+C:/Users/elyon/CLionProjects/archiver_Fedorova_Alena_BSE185/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/elyon/CLionProjects/archiver_Fedorova_Alena_BSE185/cmake-build-debug/CMakeFiles/rebuild_cache.dir
