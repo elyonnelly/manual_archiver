@@ -25,17 +25,22 @@ void ShannonFano::decode(std::string input, std::string output)
             if (!fin.eof())
             {
                 temp.ch = byte;
-                cout << temp.byte;
+                cout << temp.ch;
+                //так вот....
             }
         }
     }
 }
 
+bool cmp(pair<int, int> &a, pair<int, int> &b)
+{
+    return a > b;
+}
 
 void ShannonFano::encode(std::string input, std::string output)
 {
     count_frequencies(input);
-    std::sort(frequency.begin(), frequency.end()); //проверить, лучше ли так или своим пузырьком
+    std::sort(frequency.rbegin(), frequency.rend()); //проверить, лучше ли так или своим пузырьком
     build();
 
     //получили коды всех встречающихся символов
@@ -47,8 +52,17 @@ void ShannonFano::encode(std::string input, std::string output)
 
     std::ifstream fin;
     std::ofstream fout;
-    fin.open(input, std::ios::binary); //какое отличие от мода по умолчанию?
+
     fout.open(output, std::ios::binary);
+    //здесь нужно записать табличку частот в начало файла. байт-частота-байт-частота...
+    for (int i = 0; i < frequency.size(); ++i)
+    {
+        char byte = frequency[i].second;
+        fout.write(&byte, sizeof(char));
+        fout.write(reinterpret_cast<const char *>(&frequency[i].first), sizeof(int));
+    }
+
+    fin.open(input, std::ios::binary); //какое отличие от мода по умолчанию?
     if (fin.is_open())
     {
         char byte;
@@ -57,21 +71,21 @@ void ShannonFano::encode(std::string input, std::string output)
         int i = 7;
         while(!fin.eof())
         {
-            fin.read(&byte, sizeof(byte));
+            fin.read(&byte, sizeof(char));
             if (!fin.eof())
             {
                 //у этого символа -- byte -- код codes[byte]
-                auto code_string = codes[byte];
-                //cout << code_string << " ";
+                unsigned char a = byte;
+                auto code_string = codes[a];
                 for(auto b : code_string)
                 {
                     temp.byte.set(i--, b == '1');
                     if(i == -1)
                     {
                         i = 7;
-                        char a = temp.ch;
-                        fout.write(&a, sizeof(char));
-                        cout << temp.byte;
+                        char w = temp.ch;
+                        fout.write(reinterpret_cast<const char *>(&temp.ch), sizeof(char));
+                        cout << temp.ch;
 
                         temp.ch = 0;
                     }
@@ -82,7 +96,7 @@ void ShannonFano::encode(std::string input, std::string output)
         }
         char a = temp.ch;
         fout.write(&a, sizeof(char));
-        cout << temp.byte;
+        cout << temp.ch;
 
         //cout << temp.byte;
         temp.ch = 0;
@@ -101,10 +115,10 @@ void ShannonFano::count_frequencies(std::string &input)
     fill(temp, temp + 256, 0);
     if (fin.is_open())
     {
-        char byte;
+        unsigned char byte;
         while(!fin.eof())
         {
-            fin.read(&byte, sizeof(byte));
+            fin.read(reinterpret_cast<char *>(&byte), sizeof(byte));
             if (!fin.eof())
             {
                 temp[byte]++;
@@ -128,7 +142,10 @@ void ShannonFano::count_frequencies(std::string &input)
 void ShannonFano::build()
 {
     fill_prefix_sum();
-    code.resize(frequency.size());
+    for (int i = 0; i < frequency.size(); ++i)
+    {
+        code.emplace_back(0);
+    }
     build(0, frequency.size() - 1);
 }
 
@@ -188,9 +205,14 @@ void ShannonFano::fill_prefix_sum()
 {
     prefix_sum.resize(frequency.size() + 1);
     prefix_sum[0] = 0;
-    for (int i = 0; i < prefix_sum.size(); ++i)
+    for (int i = 0; i < frequency.size(); ++i)
     {
         prefix_sum[i + 1] = prefix_sum[i] + frequency[i].first;
     }
+}
+
+ShannonFano::ShannonFano()
+{
+
 }
 

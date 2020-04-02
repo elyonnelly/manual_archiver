@@ -27,13 +27,15 @@ class ShannonFano
 
 
 public:
+
+    ShannonFano();
     void encode(std::string input, std::string output);
     void decode(std::string input, std::string output);
 
 
 private:
     vector<int> prefix_sum;
-    vector<std::vector<int> > code;
+    vector<vector<int> > code;
     vector<pair<int, int>> frequency;
 
     //Возвращает медиану m. Тогда мы делим массив на части как [l;m-1] и [m;r]
