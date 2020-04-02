@@ -10,44 +10,87 @@
 using namespace std;
 
 
+ShannonFano::ShannonFano()
+{
+
+}
+
 void ShannonFano::decode(std::string input, std::string output)
 {
+    frequency.resize(0);
+    code.resize(0);
+    prefix_sum.resize(0);
+
     std::ifstream fin;
     fin.open(input, std::ios::binary);
-    if (fin.is_open())
+
+    count_frequencies_decode(fin);
+    int number_of_bytes;
+    fin.read(reinterpret_cast<char *>(&number_of_bytes), sizeof(int));
+    build();
+    map<string, unsigned char> codes;
+    for (int i = 0; i < frequency.size(); ++i)
     {
+        codes[get(i)] = frequency[i].second;
+        //cout << get(i) << " " << (int)frequency[i].second << "\n";
+    }
+    //cout << codes["00"] << "\n\n";
+
+
+    std::ofstream fout;
+    fout.open(output, std::ios::binary);
+
+    if (fin.is_open() && fout.is_open())
+    {
+        int count = 0;
         char byte;
         storage temp;
-        int i = 0;
-        while (!fin.eof())
+        string str_code;
+        while (!fin.eof() && count != number_of_bytes)
         {
             fin.read(&byte, sizeof(byte));
             if (!fin.eof())
             {
                 temp.ch = byte;
-                cout << temp.ch;
-                //так вот....
+                //cout << temp.byte << " ";
+                for(int i = 7; i >= 0; i--)
+                {
+                    str_code += '0' + temp.byte[i];
+                    if (count < number_of_bytes && codes.find(str_code) != codes.end())
+                    {
+                        char symbol = (char)codes[str_code];
+                        fout.write(&symbol, sizeof(char));
+                        //cout << (int)codes[str_code] << " ";
+                        str_code = "";
+                        count++;
+                    }
+                }
+                //cout << "\n";
             }
         }
     }
+    fin.close();
+    fout.close();
 }
 
-bool cmp(pair<int, int> &a, pair<int, int> &b)
-{
-    return a > b;
-}
 
 void ShannonFano::encode(std::string input, std::string output)
 {
-    count_frequencies(input);
-    std::sort(frequency.rbegin(), frequency.rend()); //проверить, лучше ли так или своим пузырьком
+    frequency.resize(0);
+    code.resize(0);
+    prefix_sum.resize(0);
+    int number_of_byte = count_frequencies_encode(input);
     build();
 
     //получили коды всех встречающихся символов
     string codes[256];
+    int frequency_byte[256];
+    fill(frequency_byte, frequency_byte + 256, 0);
     for (int i = 0; i < frequency.size(); ++i)
     {
         codes[frequency[i].second] = get(i);
+        //cout << get(i) << " ";
+        frequency_byte[frequency[i].second] = frequency[i].first;
     }
 
     std::ifstream fin;
@@ -55,12 +98,15 @@ void ShannonFano::encode(std::string input, std::string output)
 
     fout.open(output, std::ios::binary);
     //здесь нужно записать табличку частот в начало файла. байт-частота-байт-частота...
-    for (int i = 0; i < frequency.size(); ++i)
+    for (int i = 0; i < 256; ++i)
     {
-        char byte = frequency[i].second;
+        char byte = i;
         fout.write(&byte, sizeof(char));
-        fout.write(reinterpret_cast<const char *>(&frequency[i].first), sizeof(int));
+        fout.write(reinterpret_cast<const char *>(&frequency_byte[i]), sizeof(int));
     }
+    //запишем количество байтов в исходном файле
+    fout.write(reinterpret_cast<const char *>(&number_of_byte), sizeof(int));
+
 
     fin.open(input, std::ios::binary); //какое отличие от мода по умолчанию?
     if (fin.is_open())
@@ -83,9 +129,9 @@ void ShannonFano::encode(std::string input, std::string output)
                     if(i == -1)
                     {
                         i = 7;
-                        char w = temp.ch;
                         fout.write(reinterpret_cast<const char *>(&temp.ch), sizeof(char));
-                        cout << temp.ch;
+                        //cout << temp.ch;
+                        cout << temp.byte << " ";
 
                         temp.ch = 0;
                     }
@@ -94,11 +140,15 @@ void ShannonFano::encode(std::string input, std::string output)
 
             }
         }
-        char a = temp.ch;
-        fout.write(&a, sizeof(char));
-        cout << temp.ch;
+        if (i != 7)
+        {
+            char a = temp.ch;
+            fout.write(&a, sizeof(char));
+            //cout << temp.ch;
 
-        //cout << temp.byte;
+            cout << temp.byte;
+
+        }
         temp.ch = 0;
     }
 
@@ -106,13 +156,14 @@ void ShannonFano::encode(std::string input, std::string output)
     fout.close();
 }
 
-void ShannonFano::count_frequencies(std::string &input)
+int ShannonFano::count_frequencies_encode(std::string &input)
 {
     std::ifstream fin;
     fin.open(input, std::ios::binary);
 
     int temp[256];
     fill(temp, temp + 256, 0);
+    int count = 0;
     if (fin.is_open())
     {
         unsigned char byte;
@@ -122,6 +173,7 @@ void ShannonFano::count_frequencies(std::string &input)
             if (!fin.eof())
             {
                 temp[byte]++;
+                count++;
             }
         }
     }
@@ -134,8 +186,12 @@ void ShannonFano::count_frequencies(std::string &input)
             //если и делать мапу, то здесь
         }
     }
+    std::sort(frequency.rbegin(), frequency.rend()); //проверить, лучше ли так или своим пузырьком
 
     fin.close();//опробовать два варианта: "закрывать и заново открывать" либо "не закрывать"
+
+    cout << count;
+    return count;
 }
 
 
@@ -211,8 +267,24 @@ void ShannonFano::fill_prefix_sum()
     }
 }
 
-ShannonFano::ShannonFano()
-{
 
+void ShannonFano::count_frequencies_decode(ifstream &fin)
+{
+    if (fin.is_open())
+    {
+        for (int i = 0; i < 256; ++i)
+        {
+            unsigned char byte;
+            fin.read(reinterpret_cast<char *>(&byte), sizeof(char));
+            int freq;
+            fin.read(reinterpret_cast<char *>(&freq), sizeof(int));
+
+            if (freq > 0)
+            {
+                frequency.emplace_back(freq, byte);
+            }
+        }
+    }
+    sort(frequency.rbegin(), frequency.rend());
 }
 

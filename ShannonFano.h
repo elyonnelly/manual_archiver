@@ -44,7 +44,9 @@ private:
     void build(int l, int r);
     string get (int i);
     void fill_prefix_sum();
-    void count_frequencies(std::string &input);
+
+    int count_frequencies_encode(string &input);
+    void count_frequencies_decode(ifstream &fin);
 
 };
 

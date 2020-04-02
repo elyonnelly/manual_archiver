@@ -35,7 +35,7 @@ int main()
     auto * shf = new ShannonFano();
     shf->encode("input.txt", "output.txt");
     cout << "\n";
-    shf->decode("output.txt", "no");
+    shf->decode("output.txt", "decode.txt");
 
     return 0;
 }
