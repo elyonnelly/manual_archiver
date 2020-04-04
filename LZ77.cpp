@@ -9,60 +9,24 @@ using namespace std;
 
 LZ77::LZ77(int dictionary_size, int window_size)
 {
-    this->dictionary_size = dictionary_size ;
-    this->window_size = window_size ;
+    this->dictionary_size = dictionary_size * 1024;
+    this->window_size = window_size * 1024;
     this->buffer_size = this->dictionary_size + this->window_size;
 }
 
 
 void LZ77::encode(std::string input, std::string output)
 {
-    std::ifstream fin;
-
-    fin.open(input, std::ios::binary);
-
-    vector<unsigned char> text(window_size + dictionary_size); //кольцевой буффер такой
-
-    int index = 0, size_of_file = 0;
-
-    unsigned char ch;
-    //сначала заполним буфер предпросмотра
-    while(index < window_size && fin.read(reinterpret_cast<char *>(&ch), sizeof(char)))
-    {
-        text[index++] = ch;
-        size_of_file++;
-    }
-
-    std::vector<Code> codes(0);
-
-    int current_size_of_dict = 0;
-    int start_of_window = 0;
-    while (start_of_window < size_of_file)
-    {
-        Code c = getPrefix(text, start_of_window % buffer_size, current_size_of_dict);
-        codes.push_back(c);
-
-        start_of_window += (c.length + 1);
-        current_size_of_dict = min(start_of_window, dictionary_size);
-
-        //теперь нужно считать c.length + 1 символ и сдвинуть указатели на окно и словарь
-        int cnt = 0;
-        while (cnt < c.length + 1 && fin.read(reinterpret_cast<char *>(&ch), sizeof(char)))
-        {
-            text[index] = ch;
-            index = (index + 1) % buffer_size;
-            cnt++;
-            size_of_file++;
-        }
-    }
-
+    auto res = get_codes(input);
     ofstream fout;
     fout.open(output, std::ios::binary);
-    fout << codes.size() << "\n";
+    fout.write(reinterpret_cast<const char *>(&res.second), sizeof(int));
 
-    for (int i = 0; i < codes.size(); ++i)
+    for (int i = 0; i < res.first.size(); ++i)
     {
-        fout << codes[i].offset << " " << codes[i].length << " " << codes[i].next_char << " ";
+        fout.write(reinterpret_cast<const char *>(&res.first[i].offset), sizeof(short));
+        fout.write(reinterpret_cast<const char *>(&res.first[i].length), sizeof(short));
+        fout.write(reinterpret_cast<const char *>(&res.first[i].next_char), sizeof(char));
     }
 }
 
@@ -76,7 +40,7 @@ Code LZ77::getPrefix(vector<unsigned char> &s, int start_of_window, int current_
 
     //вот тут внести правки, до каких пор идти
     int offset = 0, length = 0;
-    char new_char = s[start_of_window];
+    unsigned char new_char = s[start_of_window];
 
     //мы идем от start_of_dict до start_of_window, то есть длину словаря проходим просто
     for (int k = 0; k < current_size_of_dict; k++)
@@ -85,7 +49,7 @@ Code LZ77::getPrefix(vector<unsigned char> &s, int start_of_window, int current_
 
         //сколько раз можно выполнять эти действия? Пока до конца буфера предпросмотра не дойдем
         int shift = 0;
-        while(shift < window_size && s[i1] == s[j1])
+        while (shift < window_size && s[i1] == s[j1])
         {
             i1 = (i1 + 1) % buffer_size;
             j1 = (j1 + 1) % buffer_size;
@@ -103,27 +67,98 @@ Code LZ77::getPrefix(vector<unsigned char> &s, int start_of_window, int current_
             new_char = s[j1];
         }
     }
-    return {offset, length, new_char};
+    return {(short)offset, (short)length, new_char};
 }
 
-//у нас здесь уже как бы было считано всё окно
-std::vector<Code> LZ77::get_code(vector<unsigned char> &s)
+std::pair<vector<Code>, int> LZ77::get_codes(string input)
 {
-    std::vector<Code> codes(0);
-    int position = 0;
-    int current_dictionary_size = 0;
-    while(position < s.size())
+    std::ifstream fin;
+
+    fin.open(input, std::ios::binary);
+
+    vector<unsigned char> text(window_size + dictionary_size); //кольцевой буффер такой
+
+    int index = 0, size_of_file = 0;
+
+    unsigned char ch;
+    //сначала заполним буфер предпросмотра
+    while (fin.is_open() && index < window_size && fin.read(reinterpret_cast<char *>(&ch), sizeof(char)))
     {
-        //нашли наибольший префикс строки в буфере предпросмотра, который есть в буфере предыстории
-        Code c = getPrefix(s, position, current_dictionary_size);
-        int offset = c.offset; //позиция префикса в буфере предыстории
-        int length = c.length; //длина префикса
-        char next_char = c.next_char; //следующий за префиксом символ в буфере предпросмотра
-        position += (length + 1); //сдвинулись на l + 1 в нашем окне предпросмотра
-        current_dictionary_size = std::min(current_dictionary_size + (length + 1), dictionary_size);
-        codes.push_back(c);
+        text[index++] = ch;
+        size_of_file++;
     }
 
-    return codes;
+    std::vector<Code> codes(0);
+
+    int current_size_of_dict = 0;
+    int start_of_window = 0;
+    while (start_of_window < size_of_file)
+    {
+        //int actual_start_of_window = start_of_window < buffer_size ? start_of_window : start_of_window % buffer_size;
+
+        Code c = getPrefix(text, start_of_window % buffer_size, current_size_of_dict);
+        codes.push_back(c);
+
+        start_of_window += c.length + 1;
+        current_size_of_dict = min(start_of_window, dictionary_size);
+
+        //теперь нужно считать c.length + 1 символ и сдвинуть указатели на окно и словарь
+        int cnt = 0;
+        while (fin.is_open() && cnt < c.length + 1 && fin.read(reinterpret_cast<char *>(&ch), sizeof(char)))
+        {
+            text[index] = ch;
+            index = index + 1 < buffer_size ? index + 1 : (index + 1) % buffer_size;
+            cnt++;
+            size_of_file++;
+        }
+    }
+
+    fin.close();
+
+    return {codes, size_of_file};
+}
+
+void LZ77::decode(std::string input, std::string output)
+{
+    vector<Code> codes(0);
+    short offset, length;
+    unsigned char new_char;
+
+    ifstream fin;
+    fin.open(input, ios::binary);
+    int size_of_file;
+    fin.read(reinterpret_cast<char *>(&size_of_file), sizeof(int));
+
+    while(fin.read(reinterpret_cast<char *>(&offset), sizeof(short))
+            && fin.read(reinterpret_cast<char *>(&length), sizeof(short))
+            && fin.read(reinterpret_cast<char *>(&new_char), sizeof(char)))
+    {
+        codes.push_back({offset, length, new_char});
+    }
+
+    vector<unsigned char > text(0);
+    text.push_back(codes[0].next_char);
+    int position = 1;
+    for (int i = 1; i < codes.size(); ++i)
+    {
+        for (int j = position - codes[i].offset; j < min(position - codes[i].offset + codes[i].length, (int)text.size()); ++j)
+        {
+            text.push_back(text[j]);
+        }
+        if (text.size() < size_of_file)
+        {
+            text.push_back(codes[i].next_char);
+        }
+
+        position = text.size();
+    }
+
+    ofstream fout;
+    fout.open(output, ios::binary);
+    for (int i = 0; i < text.size(); ++i)
+    {
+        fout.write(reinterpret_cast<const char *>(&text[i]), sizeof(char));
+    }
+
 }
 

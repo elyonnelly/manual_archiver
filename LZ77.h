@@ -10,8 +10,8 @@
 
 struct Code
 {
-    int offset, length;
-    char next_char;
+    short offset, length;
+    unsigned char next_char;
 };
 
 class LZ77
@@ -23,7 +23,7 @@ public:
 
 private:
     Code getPrefix(std::vector<unsigned char> &s, int start_of_window, int current_dictionary_size);
-    std::vector<Code> get_code(std::vector<unsigned char> &s);
+    std::pair<std::vector<Code>, int> get_codes(std::string input);
 
 private:
     int dictionary_size;

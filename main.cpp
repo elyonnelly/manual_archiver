@@ -37,10 +37,13 @@ int main()
     //cout << "\n";
     shf->decode("output.jpg", "decode.jpg");
 */
-    auto * lz = new LZ77(4, 5);
-    lz->encode("input.txt", "output.txt");
-    //cout << "\n";
-    //lz->decode("output.txt", "decode.txt");
+    auto * lz = new LZ77(8, 10);
+    //lz->encode("../DATA/input.jpg", "../DATA/encode.jpg");
+    cout << "\n";
+    //lz->decode("../DATA/encode.jpg", "../DATA/decode.jpg");
+    lz->encode("../DATA/input.jpg", "../DATA/encode.jpg");
+    cout << "\n";
+    lz->decode("../DATA/encode.jpg", "../DATA/decode.jpg");
 
 
 

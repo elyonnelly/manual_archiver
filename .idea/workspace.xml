@@ -15,16 +15,20 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LZ77.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/LZ77.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LZ77.h" beforeDir="false" afterPath="$PROJECT_DIR$/LZ77.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShannonFano.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ShannonFano.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/LZ77.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/LZ77.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/ShannonFano.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/ShannonFano.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/objects.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/archiver_Fedorova_Alena_BSE185.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/archiver_Fedorova_Alena_BSE185.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/decode.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/decode.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/decode.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/decode.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/input.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/input.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/input.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/output.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/output.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/output.shan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/output.unshan" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -104,5 +108,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="res.first[1]" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
