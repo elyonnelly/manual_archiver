@@ -32,10 +32,17 @@ int main()
             (end-start).count();
     cout << elapsed_seconds << "mc \n";*/
 
-    auto * shf = new ShannonFano();
-    shf->encode("input.txt", "output.txt");
-    cout << "\n";
-    shf->decode("output.txt", "decode.txt");
+    /*auto * shf = new ShannonFano();
+    shf->encode("input.jpg", "output.jpg");
+    //cout << "\n";
+    shf->decode("output.jpg", "decode.jpg");
+*/
+    auto * lz = new LZ77(4, 5);
+    lz->encode("input.txt", "output.txt");
+    //cout << "\n";
+    //lz->decode("output.txt", "decode.txt");
+
+
 
     return 0;
 }

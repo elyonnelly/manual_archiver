@@ -32,10 +32,7 @@ void ShannonFano::decode(std::string input, std::string output)
     for (int i = 0; i < frequency.size(); ++i)
     {
         codes[get(i)] = frequency[i].second;
-        //cout << get(i) << " " << (int)frequency[i].second << "\n";
     }
-    //cout << codes["00"] << "\n\n";
-
 
     std::ofstream fout;
     fout.open(output, std::ios::binary);
@@ -46,26 +43,20 @@ void ShannonFano::decode(std::string input, std::string output)
         char byte;
         storage temp;
         string str_code;
-        while (!fin.eof() && count != number_of_bytes)
+        while (fin.read(&byte, sizeof(byte)) && count != number_of_bytes)
         {
-            fin.read(&byte, sizeof(byte));
-            if (!fin.eof())
+            temp.ch = byte;
+            //cout << temp.byte << " ";
+            for(int i = 7; i >= 0; i--)
             {
-                temp.ch = byte;
-                //cout << temp.byte << " ";
-                for(int i = 7; i >= 0; i--)
+                str_code += '0' + temp.byte[i];
+                if (count < number_of_bytes && codes.find(str_code) != codes.end())
                 {
-                    str_code += '0' + temp.byte[i];
-                    if (count < number_of_bytes && codes.find(str_code) != codes.end())
-                    {
-                        char symbol = (char)codes[str_code];
-                        fout.write(&symbol, sizeof(char));
-                        //cout << (int)codes[str_code] << " ";
-                        str_code = "";
-                        count++;
-                    }
+                    char symbol = (char)codes[str_code];
+                    fout.write(&symbol, sizeof(char));
+                    str_code = "";
+                    count++;
                 }
-                //cout << "\n";
             }
         }
     }
@@ -89,7 +80,6 @@ void ShannonFano::encode(std::string input, std::string output)
     for (int i = 0; i < frequency.size(); ++i)
     {
         codes[frequency[i].second] = get(i);
-        //cout << get(i) << " ";
         frequency_byte[frequency[i].second] = frequency[i].first;
     }
 
@@ -115,39 +105,26 @@ void ShannonFano::encode(std::string input, std::string output)
         storage temp;
         temp.ch = 0;
         int i = 7;
-        while(!fin.eof())
+        while(fin.read(&byte, sizeof(char)))
         {
-            fin.read(&byte, sizeof(char));
-            if (!fin.eof())
+            //у этого символа -- byte -- код codes[byte]
+            unsigned char a = byte;
+            auto code_string = codes[a];
+            for(auto b : code_string)
             {
-                //у этого символа -- byte -- код codes[byte]
-                unsigned char a = byte;
-                auto code_string = codes[a];
-                for(auto b : code_string)
+                temp.byte.set(i--, b == '1');
+                if(i == -1)
                 {
-                    temp.byte.set(i--, b == '1');
-                    if(i == -1)
-                    {
-                        i = 7;
-                        fout.write(reinterpret_cast<const char *>(&temp.ch), sizeof(char));
-                        //cout << temp.ch;
-                        cout << temp.byte << " ";
-
-                        temp.ch = 0;
-                    }
+                    i = 7;
+                    fout.write(reinterpret_cast<const char *>(&temp.ch), sizeof(char));
+                    temp.ch = 0;
                 }
-                //cout << temp.byte << "\n";
-
             }
         }
         if (i != 7)
         {
             char a = temp.ch;
             fout.write(&a, sizeof(char));
-            //cout << temp.ch;
-
-            cout << temp.byte;
-
         }
         temp.ch = 0;
     }
@@ -167,14 +144,10 @@ int ShannonFano::count_frequencies_encode(std::string &input)
     if (fin.is_open())
     {
         unsigned char byte;
-        while(!fin.eof())
+        while(fin.read(reinterpret_cast<char *>(&byte), sizeof(byte)))
         {
-            fin.read(reinterpret_cast<char *>(&byte), sizeof(byte));
-            if (!fin.eof())
-            {
-                temp[byte]++;
-                count++;
-            }
+            temp[byte]++;
+            count++;
         }
     }
 
@@ -190,7 +163,7 @@ int ShannonFano::count_frequencies_encode(std::string &input)
 
     fin.close();//опробовать два варианта: "закрывать и заново открывать" либо "не закрывать"
 
-    cout << count;
+    //cout << count;
     return count;
 }
 
