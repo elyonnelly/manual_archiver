@@ -29,7 +29,10 @@ class ShannonFano
 public:
 
     ShannonFano();
-    void encode(std::string input, std::string output);
+    /*
+     * возвращает коэффициент сжатия
+     */
+    double encode(std::string input, std::string output);
     void decode(std::string input, std::string output);
 
 

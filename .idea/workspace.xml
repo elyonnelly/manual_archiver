@@ -13,22 +13,35 @@
   <component name="ChangeListManager">
     <list default="true" id="ac7c1632-eb00-4e11-b549-a10e54112680" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATA/decode.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATA/decode.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATA/decode.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATA/encode.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATA/encode.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATA/encode.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATA/input.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/input.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATA/input.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATA/test.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/LZ77.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/LZ77.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LZ77.h" beforeDir="false" afterPath="$PROJECT_DIR$/LZ77.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShannonFano.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ShannonFano.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShannonFano.h" beforeDir="false" afterPath="$PROJECT_DIR$/ShannonFano.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdC/a.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdCXX/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdCXX/a.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/LZ77.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/LZ77.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/ShannonFano.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/ShannonFano.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/link.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/archiver_Fedorova_Alena_BSE185.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/archiver_Fedorova_Alena_BSE185.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/decode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/decode.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/input.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/input.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/input.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/output.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/output.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/output.shan" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/output.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/output.unshan" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,6 +103,7 @@
       <updated>1585674912887</updated>
       <workItem from="1585674917618" duration="36268000" />
       <workItem from="1585892351642" duration="21340000" />
+      <workItem from="1586035463978" duration="8236000" />
     </task>
     <servers />
   </component>

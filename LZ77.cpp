@@ -15,23 +15,28 @@ LZ77::LZ77(int dictionary_size, int window_size)
 }
 
 
-void LZ77::encode(std::string input, std::string output)
+double LZ77::encode(std::string input, std::string output)
 {
     auto res = get_codes(input);
     ofstream fout;
     fout.open(output, std::ios::binary);
     fout.write(reinterpret_cast<const char *>(&res.second), sizeof(int));
-
+    int cnt = 0;
     for (int i = 0; i < res.first.size(); ++i)
     {
+        if (res.first[i].length <= 5)
+        {
+            cnt++;
+        }
         fout.write(reinterpret_cast<const char *>(&res.first[i].offset), sizeof(short));
         fout.write(reinterpret_cast<const char *>(&res.first[i].length), sizeof(short));
         fout.write(reinterpret_cast<const char *>(&res.first[i].next_char), sizeof(char));
     }
+    return (res.first.size() * (sizeof(short) * 2 + sizeof(char)))/(double)res.second;
 }
 
 //есть шанс, что это работает..........
-Code LZ77::getPrefix(vector<unsigned char> &s, int start_of_window, int current_size_of_dict)
+Code LZ77::get_prefix(vector<unsigned char> &s, int start_of_window, int current_size_of_dict)
 {
     int i = start_of_window - current_size_of_dict >= 0 ?
             start_of_window - current_size_of_dict :
@@ -96,7 +101,7 @@ std::pair<vector<Code>, int> LZ77::get_codes(string input)
     {
         //int actual_start_of_window = start_of_window < buffer_size ? start_of_window : start_of_window % buffer_size;
 
-        Code c = getPrefix(text, start_of_window % buffer_size, current_size_of_dict);
+        Code c = get_prefix(text, start_of_window % buffer_size, current_size_of_dict);
         codes.push_back(c);
 
         start_of_window += c.length + 1;

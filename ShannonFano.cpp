@@ -65,12 +65,13 @@ void ShannonFano::decode(std::string input, std::string output)
 }
 
 
-void ShannonFano::encode(std::string input, std::string output)
+double ShannonFano::encode(std::string input, std::string output)
 {
     frequency.resize(0);
     code.resize(0);
     prefix_sum.resize(0);
-    int number_of_byte = count_frequencies_encode(input);
+    //размер исходного файла
+    int original_size = count_frequencies_encode(input);
     build();
 
     //получили коды всех встречающихся символов
@@ -87,6 +88,8 @@ void ShannonFano::encode(std::string input, std::string output)
     std::ofstream fout;
 
     fout.open(output, std::ios::binary);
+    //размер архивированного файла
+    int encode_size = 0;
     //здесь нужно записать табличку частот в начало файла. байт-частота-байт-частота...
     for (int i = 0; i < 256; ++i)
     {
@@ -94,9 +97,11 @@ void ShannonFano::encode(std::string input, std::string output)
         fout.write(&byte, sizeof(char));
         fout.write(reinterpret_cast<const char *>(&frequency_byte[i]), sizeof(int));
     }
+    encode_size += 256 * (sizeof(char) + sizeof(int));
+    
     //запишем количество байтов в исходном файле
-    fout.write(reinterpret_cast<const char *>(&number_of_byte), sizeof(int));
-
+    fout.write(reinterpret_cast<const char *>(&original_size), sizeof(int));
+    encode_size += sizeof(int);
 
     fin.open(input, std::ios::binary); //какое отличие от мода по умолчанию?
     if (fin.is_open())
@@ -117,6 +122,7 @@ void ShannonFano::encode(std::string input, std::string output)
                 {
                     i = 7;
                     fout.write(reinterpret_cast<const char *>(&temp.ch), sizeof(char));
+                    encode_size += sizeof(char);
                     temp.ch = 0;
                 }
             }
@@ -125,12 +131,15 @@ void ShannonFano::encode(std::string input, std::string output)
         {
             char a = temp.ch;
             fout.write(&a, sizeof(char));
+            encode_size += sizeof(char);
         }
         temp.ch = 0;
     }
-
+    
     fin.close();
     fout.close();
+
+    return encode_size/(double)original_size;
 }
 
 int ShannonFano::count_frequencies_encode(std::string &input)
@@ -140,14 +149,14 @@ int ShannonFano::count_frequencies_encode(std::string &input)
 
     int temp[256];
     fill(temp, temp + 256, 0);
-    int count = 0;
+    int original_size = 0;
     if (fin.is_open())
     {
         unsigned char byte;
         while(fin.read(reinterpret_cast<char *>(&byte), sizeof(byte)))
         {
             temp[byte]++;
-            count++;
+            original_size++;
         }
     }
 
@@ -164,7 +173,7 @@ int ShannonFano::count_frequencies_encode(std::string &input)
     fin.close();//опробовать два варианта: "закрывать и заново открывать" либо "не закрывать"
 
     //cout << count;
-    return count;
+    return original_size;
 }
 
 

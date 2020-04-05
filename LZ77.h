@@ -18,11 +18,15 @@ class LZ77
 {
 public:
     LZ77(int dictionary_size, int window_size);
-    void encode(std::string input, std::string output);
+
+    /*
+     * возвращает коэффициент сжатия
+     */
+    double encode(std::string input, std::string output);
     void decode(std::string input, std::string output);
 
 private:
-    Code getPrefix(std::vector<unsigned char> &s, int start_of_window, int current_dictionary_size);
+    Code get_prefix(std::vector<unsigned char> &s, int start_of_window, int current_size_of_dict);
     std::pair<std::vector<Code>, int> get_codes(std::string input);
 
 private:
