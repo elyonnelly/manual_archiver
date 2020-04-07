@@ -171,11 +171,11 @@ int main()
 
     vector<string> files = {"../DATA/1.txt", "../DATA/2.docx", "../DATA/3.pptx", "../DATA/4.pdf",
                             "../DATA/5.exe", "../DATA/6.jpg", "../DATA/7.jpg",
-                            "../DATA/8.bmp", "../DATA/9.bmp", "../DATA/10.html"};
+                            "../DATA/8.bmp", "../DATA/9.bmp"};
 
     vector<string> names = {"../DATA/1", "../DATA/2", "../DATA/3", "../DATA/4",
                             "../DATA/5", "../DATA/6", "../DATA/7",
-                            "../DATA/8", "../DATA/9", "../DATA/10"};
+                            "../DATA/8", "../DATA/9"};
 
     ofstream fout, fout_freq;
     fout.open("result.txt");
