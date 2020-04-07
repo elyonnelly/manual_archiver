@@ -38,10 +38,9 @@ public:
 
 private:
     vector<int> prefix_sum;
-    vector<vector<int> > code;
+    vector<vector<int> > codes;
     vector<pair<int, int>> frequency;
 
-    //Возвращает медиану m. Тогда мы делим массив на части как [l;m-1] и [m;r]
     int get_median(int left, int right);
     void build();
     void build(int l, int r);

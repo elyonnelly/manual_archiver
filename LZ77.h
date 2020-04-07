@@ -17,7 +17,7 @@ struct Code
 class LZ77
 {
 public:
-    LZ77(int dictionary_size, int window_size);
+    LZ77(int window_size, int dictionary_size);
 
     /*
      * возвращает коэффициент сжатия

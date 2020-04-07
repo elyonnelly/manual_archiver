@@ -12,36 +12,122 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac7c1632-eb00-4e11-b549-a10e54112680" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/DATA/1.lz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/1.lz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/1.lz7720_16" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/1.lz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/1.shan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/1.unlz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/1.unlz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/1.unlz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/1.unshan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/10.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/10.lz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/10.lz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/10.lz7720_16" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/10.lz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/10.shan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/10.unlz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/10.unlz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/10.unlz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/10.unshan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/2.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/2.lz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/2.lz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/2.lz7720_16" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/2.lz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/2.shan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/2.unlz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/2.unlz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/2.unlz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/2.unshan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/3.lz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/3.lz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/3.lz7720_16" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/3.lz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/3.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/3.shan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/3.unlz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/3.unlz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/3.unlz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/3.unshan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/4.lz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/4.lz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/4.lz7720_16" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/4.lz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/4.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/4.shan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/4.unlz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/4.unlz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/4.unlz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/4.unshan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/5.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/5.lz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/5.lz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/5.lz7720_16" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/5.lz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/5.shan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/5.unlz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/5.unlz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/5.unlz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/5.unshan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/6.lz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/6.lz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/6.lz7720_16" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/6.lz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/6.shan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/6.unlz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/6.unlz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/6.unlz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/6.unshan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/7.lz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/7.lz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/7.lz7720_16" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/7.lz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/7.shan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/7.unlz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/7.unlz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/7.unlz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/7.unshan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/8.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/8.lz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/8.lz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/8.lz7720_16" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/8.lz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/8.shan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/8.unlz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/8.unlz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/8.unlz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/8.unshan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/9.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/9.lz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/9.lz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/9.lz7720_16" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/9.lz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/9.shan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/9.unlz7710" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/9.unlz7720" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/9.unlz775" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DATA/9.unshan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/frequencies.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/decode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/decode.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/decode.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/encode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/encode.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/encode.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/input.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/input.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/input.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATA/input.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/LZ77.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/LZ77.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LZ77.h" beforeDir="false" afterPath="$PROJECT_DIR$/LZ77.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ShannonFano.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ShannonFano.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ShannonFano.h" beforeDir="false" afterPath="$PROJECT_DIR$/ShannonFano.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdC/a.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdCXX/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdCXX/a.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/LZ77.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/LZ77.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/ShannonFano.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/ShannonFano.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/link.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/archiver_Fedorova_Alena_BSE185.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/archiver_Fedorova_Alena_BSE185.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/archiver_Fedorova_Alena_BSE185.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/no" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,22 +141,43 @@
     <option name="clangWarnings" value="-Wno-unused-variable,-Werror=implicit-function-declaration,-Wshadow,-Wno-shadow-field-in-constructor-modified,-Wno-shadow-ivar,-Wno-unsequenced" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="UML Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectId" id="1Zu2yVPzH2H1qq8hBSQkzIibjKl" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../contest7" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cmake-build-debug" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\elyon\CLionProjects\archiver_Fedorova_Alena_BSE185\cmake-build-debug" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\elyon\CLionProjects\archiver_Fedorova_Alena_BSE185\cmake-build-debug" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -103,7 +210,14 @@
       <updated>1585674912887</updated>
       <workItem from="1585674917618" duration="36268000" />
       <workItem from="1585892351642" duration="21340000" />
-      <workItem from="1586035463978" duration="8236000" />
+      <workItem from="1586035463978" duration="15795000" />
+      <workItem from="1586088570069" duration="16274000" />
+      <workItem from="1586161216041" duration="1025000" />
+      <workItem from="1586171652828" duration="3891000" />
+      <workItem from="1586186113200" duration="974000" />
+      <workItem from="1586187107542" duration="10446000" />
+      <workItem from="1586199055395" duration="4067000" />
+      <workItem from="1586204156565" duration="6025000" />
     </task>
     <servers />
   </component>
@@ -123,11 +237,7 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="CMakeRunConfiguration">
-        <watch expression="res.first[1]" />
-      </configuration>
-    </watches-manager>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

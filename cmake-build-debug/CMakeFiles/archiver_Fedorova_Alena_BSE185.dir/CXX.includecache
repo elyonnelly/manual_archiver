@@ -6,31 +6,15 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/elyon/CLionProjects/archiver_Fedorova_Alena_BSE185/LZ77.h
-iostream
--
-vector
--
-
-C:/Users/elyon/CLionProjects/archiver_Fedorova_Alena_BSE185/ShannonFano.h
-vector
--
-iostream
--
-bitset
--
-
-C:/Users/elyon/CLionProjects/archiver_Fedorova_Alena_BSE185/main.cpp
-iostream
--
-future
--
-chrono
--
+C:/Users/elyon/CLionProjects/archiver_Fedorova_Alena_BSE185/LZ77.cpp
 fstream
 -
-ShannonFano.h
-C:/Users/elyon/CLionProjects/archiver_Fedorova_Alena_BSE185/ShannonFano.h
 LZ77.h
 C:/Users/elyon/CLionProjects/archiver_Fedorova_Alena_BSE185/LZ77.h
+
+C:/Users/elyon/CLionProjects/archiver_Fedorova_Alena_BSE185/LZ77.h
+iostream
+-
+vector
+-
 

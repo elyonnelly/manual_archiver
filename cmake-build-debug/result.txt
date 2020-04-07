@@ -1,0 +1,170 @@
+../DATA/1.txt
+size: 813.434
+entropy: 4.25003
+ShannonFano
+encode time: 87.1 coeff: 0.537335
+decode time: 173.4
+encode size: 437.086LZ775_4
+encode time: 3235.3 coeff: 0.709635
+decode time: 43.2
+encode size: 577.245LZ7710_8
+encode time: 5718.5 coeff: 0.63669
+decode time: 41.6
+encode size: 0LZ7720_16
+encode time: 10160.7 coeff: 0.573746
+decode time: 41.5
+encode size: 0
+
+../DATA/2.docx
+size: 782.907
+entropy: 7.89967
+ShannonFano
+encode time: 82.8 coeff: 0.994922
+decode time: 251.9
+encode size: 778.932LZ775_4
+encode time: 4334.9 coeff: 2.11385
+decode time: 63.7
+encode size: 1654.96LZ7710_8
+encode time: 8254.3 coeff: 2.01556
+decode time: 64.7
+encode size: 0LZ7720_16
+encode time: 15083.7 coeff: 1.88534
+decode time: 62.1
+encode size: 0
+
+../DATA/3.pptx
+size: 805.413
+entropy: 7.86981
+ShannonFano
+encode time: 95.7 coeff: 0.992162
+decode time: 255.8
+encode size: 799.101LZ775_4
+encode time: 4499.6 coeff: 2.13206
+decode time: 66.9
+encode size: 1717.19LZ7710_8
+encode time: 8582.1 coeff: 2.05938
+decode time: 65.3
+encode size: 0LZ7720_16
+encode time: 16030.7 coeff: 1.94588
+decode time: 63.7
+encode size: 0
+
+../DATA/4.pdf
+size: 822.45
+entropy: 7.84915
+ShannonFano
+encode time: 84.1 coeff: 0.990729
+decode time: 261.2
+encode size: 814.825LZ775_4
+encode time: 4510.5 coeff: 2.09772
+decode time: 66.9
+encode size: 1725.28LZ7710_8
+encode time: 8598.7 coeff: 2.0186
+decode time: 65.7
+encode size: 0LZ7720_16
+encode time: 16177 coeff: 1.92501
+decode time: 65.3
+encode size: 0
+
+../DATA/5.exe
+size: 796.506
+entropy: 7.86299
+ShannonFano
+encode time: 81.1 coeff: 0.991977
+decode time: 293.9
+encode size: 790.115LZ775_4
+encode time: 4619.7 coeff: 2.16579
+decode time: 107.4
+encode size: 1725.07LZ7710_8
+encode time: 8745.4 coeff: 2.10403
+decode time: 106.5
+encode size: 0LZ7720_16
+encode time: 16505.5 coeff: 2.00744
+decode time: 105.3
+encode size: 0
+
+../DATA/6.jpg
+size: 803.714
+entropy: 7.71074
+ShannonFano
+encode time: 83.8 coeff: 0.971475
+decode time: 261.2
+encode size: 780.788LZ775_4
+encode time: 4691.2 coeff: 2.19725
+decode time: 63.7
+encode size: 1765.96LZ7710_8
+encode time: 8813.8 coeff: 2.08968
+decode time: 62.5
+encode size: 0LZ7720_16
+encode time: 16393.8 coeff: 1.96497
+decode time: 62.3
+encode size: 0
+
+../DATA/7.jpg
+size: 794.272
+entropy: 5.91744
+ShannonFano
+encode time: 76 coeff: 0.746062
+decode time: 177.1
+encode size: 592.576LZ775_4
+encode time: 1004.5 coeff: 0.387632
+decode time: 37.1
+encode size: 307.89LZ7710_8
+encode time: 1461.3 coeff: 0.290489
+decode time: 35.6
+encode size: 0LZ7720_16
+encode time: 1716.3 coeff: 0.186147
+decode time: 34.2
+encode size: 0
+
+../DATA/8.bmp
+size: 818.396
+entropy: 2.59884
+ShannonFano
+encode time: 58.9 coeff: 0.344063
+decode time: 115.1
+encode size: 281.58LZ775_4
+encode time: 3257.8 coeff: 0.31075
+decode time: 37.1
+encode size: 254.32LZ7710_8
+encode time: 5907.3 coeff: 0.290804
+decode time: 37.1
+encode size: 0LZ7720_16
+encode time: 8401.4 coeff: 0.275578
+decode time: 36.6
+encode size: 0
+
+../DATA/9.bmp
+size: 824.842
+entropy: 2.19826
+ShannonFano
+encode time: 57.9 coeff: 0.308233
+decode time: 105.6
+encode size: 254.243LZ775_4
+encode time: 5345.8 coeff: 0.352577
+decode time: 38.7
+encode size: 290.824LZ7710_8
+encode time: 9541.8 coeff: 0.3152
+decode time: 37.1
+encode size: 0LZ7720_16
+encode time: 16027.5 coeff: 0.294594
+decode time: 37.1
+encode size: 0
+
+../DATA/10.html
+size: 817.514
+entropy: 5.85361
+ShannonFano
+encode time: 90.7 coeff: 0.738282
+decode time: 268.3
+encode size: 603.556LZ775_4
+encode time: 1424.9 coeff: 0.485036
+decode time: 130
+encode size: 396.527LZ7710_8
+encode time: 2282.9 coeff: 0.407193
+decode time: 129.7
+encode size: 0LZ7720_16
+encode time: 3821.8 coeff: 0.350117
+decode time: 127.2
+encode size: 0
+

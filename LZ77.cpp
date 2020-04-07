@@ -7,13 +7,12 @@
 
 using namespace std;
 
-LZ77::LZ77(int dictionary_size, int window_size)
+LZ77::LZ77(int window_size, int dictionary_size)
 {
     this->dictionary_size = dictionary_size * 1024;
     this->window_size = window_size * 1024;
     this->buffer_size = this->dictionary_size + this->window_size;
 }
-
 
 double LZ77::encode(std::string input, std::string output)
 {
@@ -21,13 +20,9 @@ double LZ77::encode(std::string input, std::string output)
     ofstream fout;
     fout.open(output, std::ios::binary);
     fout.write(reinterpret_cast<const char *>(&res.second), sizeof(int));
-    int cnt = 0;
+
     for (int i = 0; i < res.first.size(); ++i)
     {
-        if (res.first[i].length <= 5)
-        {
-            cnt++;
-        }
         fout.write(reinterpret_cast<const char *>(&res.first[i].offset), sizeof(short));
         fout.write(reinterpret_cast<const char *>(&res.first[i].length), sizeof(short));
         fout.write(reinterpret_cast<const char *>(&res.first[i].next_char), sizeof(char));
@@ -35,7 +30,6 @@ double LZ77::encode(std::string input, std::string output)
     return (res.first.size() * (sizeof(short) * 2 + sizeof(char)))/(double)res.second;
 }
 
-//есть шанс, что это работает..........
 Code LZ77::get_prefix(vector<unsigned char> &s, int start_of_window, int current_size_of_dict)
 {
     int i = start_of_window - current_size_of_dict >= 0 ?
@@ -81,12 +75,12 @@ std::pair<vector<Code>, int> LZ77::get_codes(string input)
 
     fin.open(input, std::ios::binary);
 
-    vector<unsigned char> text(window_size + dictionary_size); //кольцевой буффер такой
+    vector<unsigned char> text(window_size + dictionary_size); //кольцевой буффер
 
     int index = 0, size_of_file = 0;
 
     unsigned char ch;
-    //сначала заполним буфер предпросмотра
+    //заполним буфер предпросмотра
     while (fin.is_open() && index < window_size && fin.read(reinterpret_cast<char *>(&ch), sizeof(char)))
     {
         text[index++] = ch;
@@ -99,7 +93,6 @@ std::pair<vector<Code>, int> LZ77::get_codes(string input)
     int start_of_window = 0;
     while (start_of_window < size_of_file)
     {
-        //int actual_start_of_window = start_of_window < buffer_size ? start_of_window : start_of_window % buffer_size;
 
         Code c = get_prefix(text, start_of_window % buffer_size, current_size_of_dict);
         codes.push_back(c);
@@ -112,7 +105,7 @@ std::pair<vector<Code>, int> LZ77::get_codes(string input)
         while (fin.is_open() && cnt < c.length + 1 && fin.read(reinterpret_cast<char *>(&ch), sizeof(char)))
         {
             text[index] = ch;
-            index = index + 1 < buffer_size ? index + 1 : (index + 1) % buffer_size;
+            index = (index + 1) % buffer_size;
             cnt++;
             size_of_file++;
         }

@@ -4,6 +4,7 @@
 
 #include "ShannonFano.h"
 #include <map>
+#include <unordered_map>
 #include <fstream>
 #include <algorithm>
 
@@ -18,7 +19,7 @@ ShannonFano::ShannonFano()
 void ShannonFano::decode(std::string input, std::string output)
 {
     frequency.resize(0);
-    code.resize(0);
+    codes.resize(0);
     prefix_sum.resize(0);
 
     std::ifstream fin;
@@ -28,10 +29,10 @@ void ShannonFano::decode(std::string input, std::string output)
     int number_of_bytes;
     fin.read(reinterpret_cast<char *>(&number_of_bytes), sizeof(int));
     build();
-    map<string, unsigned char> codes;
+    unordered_map<string, unsigned char> codes_byte;
     for (int i = 0; i < frequency.size(); ++i)
     {
-        codes[get(i)] = frequency[i].second;
+        codes_byte[get(i)] = frequency[i].second;
     }
 
     std::ofstream fout;
@@ -46,13 +47,12 @@ void ShannonFano::decode(std::string input, std::string output)
         while (fin.read(&byte, sizeof(byte)) && count != number_of_bytes)
         {
             temp.ch = byte;
-            //cout << temp.byte << " ";
             for(int i = 7; i >= 0; i--)
             {
                 str_code += '0' + temp.byte[i];
-                if (count < number_of_bytes && codes.find(str_code) != codes.end())
+                if (count < number_of_bytes && codes_byte.find(str_code) != codes_byte.end())
                 {
-                    char symbol = (char)codes[str_code];
+                    char symbol = (char)codes_byte[str_code];
                     fout.write(&symbol, sizeof(char));
                     str_code = "";
                     count++;
@@ -68,19 +68,19 @@ void ShannonFano::decode(std::string input, std::string output)
 double ShannonFano::encode(std::string input, std::string output)
 {
     frequency.resize(0);
-    code.resize(0);
+    codes.resize(0);
     prefix_sum.resize(0);
     //размер исходного файла
     int original_size = count_frequencies_encode(input);
     build();
 
     //получили коды всех встречающихся символов
-    string codes[256];
+    vector<int>* codes_byte[256];
     int frequency_byte[256];
     fill(frequency_byte, frequency_byte + 256, 0);
     for (int i = 0; i < frequency.size(); ++i)
     {
-        codes[frequency[i].second] = get(i);
+        codes_byte[frequency[i].second] = &codes[i];
         frequency_byte[frequency[i].second] = frequency[i].first;
     }
 
@@ -112,12 +112,12 @@ double ShannonFano::encode(std::string input, std::string output)
         int i = 7;
         while(fin.read(&byte, sizeof(char)))
         {
-            //у этого символа -- byte -- код codes[byte]
+            //у этого символа -- byte -- код codes_byte[byte]
             unsigned char a = byte;
-            auto code_string = codes[a];
-            for(auto b : code_string)
+            auto code_string = codes_byte[a];
+            for(auto b : *code_string)
             {
-                temp.byte.set(i--, b == '1');
+                temp.byte.set(i--, b);
                 if(i == -1)
                 {
                     i = 7;
@@ -182,7 +182,7 @@ void ShannonFano::build()
     fill_prefix_sum();
     for (int i = 0; i < frequency.size(); ++i)
     {
-        code.emplace_back(0);
+        codes.emplace_back(0);
     }
     build(0, frequency.size() - 1);
 }
@@ -194,11 +194,11 @@ void ShannonFano::build(int l, int r)
     int m = get_median(l + 1, r + 1);
     for (int i = l; i < m; i++)
     {
-        code[i].push_back(0);
+        codes[i].push_back(0);
     }
     for (int i = m; i <= r; i++)
     {
-        code[i].push_back(1);
+        codes[i].push_back(1);
     }
     build(l, m-1);
     build(m, r);
@@ -208,7 +208,7 @@ std::string ShannonFano::get(int i)
 {
     // выдает битовый код i символа
     std::string s;
-    for (int j : code[i])
+    for (int j : codes[i])
         s += j + '0';
     return s;
 }
